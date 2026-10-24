@@ -1,4 +1,4 @@
-export type ViewKey
+export type ViewKey =
   | 'home'
   | 'photo-editor'
   | 'product-cards'
