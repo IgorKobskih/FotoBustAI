@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-brand-dark text-white font-sans antialiased;
+  }
+  * {
+    @apply border-border;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-brand text-white px-5 py-2.5 hover:bg-brand-deep active:scale-[0.98] shadow-soft;
+  }
+  .btn-secondary {
+    @apply btn bg-bg-cream text-brand-dark border border-border px-5 py-2.5 hover:bg-brand-light/40 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn text-white/70 px-4 py-2 hover:bg-white/10 hover:text-white;
+  }
+  .btn-ghost-light {
+    @apply btn text-ink-secondary px-4 py-2 hover:bg-brand-light/50 hover:text-brand;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+  .card {
+    @apply bg-bg-cream rounded-2xl border border-border shadow-soft;
+  }
+  .card-burgundy {
+    @apply bg-brand-dark border border-white/10 rounded-2xl;
+  }
+  .gold-line {
+    @apply h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent;
+  }
+  .gold-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gold/15 text-gold text-xs font-semibold;
+  }
+  .input {
+    @apply w-full bg-bg-cream border-2 border-border rounded-xl px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-secondary/60 focus:outline-none focus:ring-2 focus:ring-brand/30 focus:border-brand/50 transition-all;
+  }
+  .label {
+    @apply block text-sm font-medium text-ink mb-1.5;
+  }
+  .slider {
+    @apply w-full h-1.5 bg-brand-light rounded-full appearance-none cursor-pointer;
+  }
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 rounded-full bg-brand shadow-soft cursor-pointer border-2 border-bg-cream;
+  }
+  .slider::-moz-range-thumb {
+    @apply w-4 h-4 rounded-full bg-brand border-2 border-bg-cream cursor-pointer;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  .section-title {
+    @apply text-lg font-semibold text-ink;
+  }
+  .section-title-light {
+    @apply text-lg font-semibold text-white;
+  }
+  .panel {
+    @apply bg-bg-cream text-ink;
+  }
+  .toolbar-dark {
+    @apply bg-brand-dark border-white/10 text-white;
+  }
+}
+
+/* Custom scrollbar — dark surfaces */
+.scroll-dark::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scroll-dark::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-dark::-webkit-scrollbar-thumb {
+  @apply bg-white/15 rounded-full;
+}
+.scroll-dark::-webkit-scrollbar-thumb:hover {
+  @apply bg-white/25;
+}
+
+/* Custom scrollbar — light surfaces */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-ink-secondary/40;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #800020;
+  outline-offset: 2px;
+}
+
+html {
+  scroll-padding-top: 4rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.safe-area {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.safe-area-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.h-dvh {
+  height: 100vh;
+}
+@supports (height: 100dvh) {
+  .h-dvh {
+    height: 100dvh;
+  }
+}
+
+.min-h-dvh {
+  min-height: 100vh;
+}
+@supports (min-height: 100dvh) {
+  .min-h-dvh {
+    min-height: 100dvh;
+  }
+}
